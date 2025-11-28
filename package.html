@@ -231,8 +231,8 @@
             background: var(--cream);
             border-radius: 12px;
             transition: all 0.3s;
-            opacity: 1;
-            visibility: visible;
+            opacity: 1 !important;
+            visibility: visible !important;
         }
         
         .inclusion-item:hover {
@@ -444,6 +444,11 @@
             height: 100%;
         }
         
+        /* Mobile horizontal path - hidden by default */
+        .journey-road-svg-mobile {
+            display: none;
+        }
+        
         .journey-road-bg {
             fill: none;
             stroke: rgba(255,255,255,0.15);
@@ -460,6 +465,11 @@
             stroke-dasharray: 2000;
             stroke-dashoffset: 2000;
             filter: drop-shadow(0 0 8px rgba(201,168,108,0.5));
+        }
+        
+        /* Mobile path uses mobile gradient */
+        .journey-road-svg-mobile .journey-road-progress {
+            stroke: url(#roadGradMobile);
         }
         
         /* Destination Markers */
@@ -672,7 +682,7 @@
             
             .journey-content {
                 flex-direction: column;
-                padding: 100px 5% 80px;
+                padding: 60px 5% 140px;
                 justify-content: flex-start;
             }
             
@@ -680,7 +690,7 @@
                 max-width: 100%;
                 text-align: center;
                 align-items: center;
-                padding-top: 20px;
+                padding-top: 10px;
             }
             
             .journey-place-name {
@@ -693,21 +703,30 @@
                 padding: 0 10px;
             }
             
+            /* Horizontal road at bottom on mobile */
             .journey-road-container {
                 position: absolute;
                 right: auto;
-                left: 50%;
+                left: 5%;
                 top: auto;
-                bottom: 15%;
-                transform: translateX(-50%);
+                bottom: 50px;
+                transform: none;
                 width: 90%;
-                height: 120px;
+                height: 60px;
             }
             
+            /* Hide desktop vertical path, show mobile horizontal */
             .journey-road-svg {
-                transform: rotate(-90deg);
+                display: none;
             }
             
+            .journey-road-svg-mobile {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            
+            /* Horizontal bus */
             .journey-bus {
                 width: 40px;
                 height: 22px;
@@ -716,7 +735,7 @@
             .journey-progress {
                 flex-direction: row;
                 top: auto;
-                bottom: 80px;
+                bottom: 20px;
                 left: 50%;
                 transform: translateX(-50%);
                 gap: 6px;
@@ -726,17 +745,17 @@
             }
             
             .journey-progress-dot {
-                width: 10px;
-                height: 10px;
+                width: 8px;
+                height: 8px;
             }
             
             .journey-scroll-hint {
-                bottom: 15px;
-                font-size: 0.75rem;
+                bottom: 5px;
+                font-size: 0.7rem;
             }
             
             .journey-bg-overlay {
-                background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.20) 40%, rgba(0,0,0,0.45) 100%);
+                background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.10) 60%, rgba(0,0,0,0.70) 100%);
             }
             
             .journey-loading {
@@ -792,12 +811,23 @@
             }
             
             .journey-road-container {
-                height: 100px;
-                bottom: 18%;
+                height: 50px;
+                bottom: 45px;
+                left: 5%;
+                width: 90%;
             }
             
             .journey-progress {
-                bottom: 60px;
+                bottom: 15px;
+            }
+            
+            .journey-bus {
+                width: 36px;
+                height: 20px;
+            }
+            
+            .journey-content {
+                padding: 50px 5% 120px;
             }
             
             .inclusions-grid {
@@ -855,8 +885,8 @@
             gap: 50px;
             margin-bottom: 100px;
             align-items: start;
-            opacity: 1;
-            visibility: visible;
+            opacity: 1 !important;
+            visibility: visible !important;
         }
         
         .day-card:nth-child(even) {
@@ -959,8 +989,8 @@
             position: relative;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             transition: all 0.4s;
-            opacity: 1;
-            visibility: visible;
+            opacity: 1 !important;
+            visibility: visible !important;
         }
         
         .day-photo:first-child {
@@ -975,11 +1005,16 @@
             transition: transform 0.5s;
             background: var(--cream);
             display: block;
+            opacity: 1;
         }
         
         .day-photo img[src=""],
         .day-photo img:not([src]) {
             opacity: 0;
+        }
+        
+        .day-photo img.loading {
+            opacity: 0.3;
         }
         
         .day-photo:hover {
@@ -1306,6 +1341,7 @@
                 
                 <!-- Road with Bus -->
                 <div class="journey-road-container">
+                    <!-- Desktop Vertical Path -->
                     <svg class="journey-road-svg" viewBox="0 0 200 500" preserveAspectRatio="xMidYMid meet">
                         <defs>
                             <linearGradient id="roadGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -1313,10 +1349,20 @@
                                 <stop offset="100%" style="stop-color:#c9a86c"/>
                             </linearGradient>
                         </defs>
-                        <!-- Road Background -->
                         <path class="journey-road-bg" id="journeyRoadBg" d="M 100 20 Q 50 80 100 140 Q 150 200 100 260 Q 50 320 100 380 Q 150 440 100 480"/>
-                        <!-- Road Progress -->
                         <path class="journey-road-progress" id="journeyRoadProgress" d="M 100 20 Q 50 80 100 140 Q 150 200 100 260 Q 50 320 100 380 Q 150 440 100 480"/>
+                    </svg>
+                    
+                    <!-- Mobile Horizontal Path -->
+                    <svg class="journey-road-svg-mobile" viewBox="0 0 500 60" preserveAspectRatio="xMidYMid meet">
+                        <defs>
+                            <linearGradient id="roadGradMobile" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#2d5a4a"/>
+                                <stop offset="100%" style="stop-color:#c9a86c"/>
+                            </linearGradient>
+                        </defs>
+                        <path class="journey-road-bg" id="journeyRoadBgMobile" d="M 20 30 Q 80 15 140 30 Q 200 45 260 30 Q 320 15 380 30 Q 440 45 480 30"/>
+                        <path class="journey-road-progress" id="journeyRoadProgressMobile" d="M 20 30 Q 80 15 140 30 Q 200 45 260 30 Q 320 15 380 30 Q 440 45 480 30"/>
                     </svg>
                     
                     <!-- Bus Element -->
@@ -1600,7 +1646,8 @@
         };
         
         // DOM Elements
-        const roadPath = document.getElementById('journeyRoadProgress');
+        const roadPathDesktop = document.getElementById('journeyRoadProgress');
+        const roadPathMobile = document.getElementById('journeyRoadProgressMobile');
         const roadBg = document.getElementById('journeyRoadBg');
         const bus = document.getElementById('journeyBus');
         const dayBadge = document.getElementById('journeyDayBadge');
@@ -1617,6 +1664,8 @@
         let isTransitioning = false;
         let preloadedImages = new Map();
         let imagesLoaded = 0;
+        let isMobile = window.innerWidth <= 768;
+        let roadPath = isMobile ? roadPathMobile : roadPathDesktop;
         
         // Preload all images for smooth transitions
         async function preloadImages() {
@@ -1655,6 +1704,10 @@
         }
         
         function initJourney() {
+            // Detect mobile and select appropriate path
+            isMobile = window.innerWidth <= 768;
+            roadPath = isMobile ? roadPathMobile : roadPathDesktop;
+            
             if (!roadPath || !bus) return;
             
             pathLength = roadPath.getTotalLength();
@@ -1677,6 +1730,26 @@
             // Start preloading images
             preloadImages();
         }
+        
+        // Handle window resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                const wasMobile = isMobile;
+                isMobile = window.innerWidth <= 768;
+                
+                // Reinitialize if switched between mobile/desktop
+                if (wasMobile !== isMobile) {
+                    roadPath = isMobile ? roadPathMobile : roadPathDesktop;
+                    if (roadPath) {
+                        pathLength = roadPath.getTotalLength();
+                        roadPath.style.strokeDasharray = pathLength;
+                        roadPath.style.strokeDashoffset = pathLength;
+                    }
+                }
+            }, 250);
+        });
         
         function getPointAtProgress(progress) {
             const point = roadPath.getPointAtLength(progress * pathLength);
@@ -1769,10 +1842,15 @@
         initJourney();
         
         // ScrollTrigger for journey - optimized with RAF
-        if (roadPath && bus) {
+        function setupScrollTrigger() {
+            // Use current active path
+            const activePath = isMobile ? roadPathMobile : roadPathDesktop;
+            
+            if (!activePath || !bus) return;
+            
             let lastProgress = -1;
             
-            gsap.to(roadPath, {
+            gsap.to(activePath, {
                 strokeDashoffset: 0,
                 ease: 'none',
                 scrollTrigger: {
@@ -1792,8 +1870,11 @@
                             // Update bus position
                             updateBusPosition(progress);
                             
-                            // Update road stroke
-                            roadPath.style.strokeDashoffset = pathLength * (1 - progress);
+                            // Update road stroke on active path
+                            const currentPath = isMobile ? roadPathMobile : roadPathDesktop;
+                            if (currentPath) {
+                                currentPath.style.strokeDashoffset = pathLength * (1 - progress);
+                            }
                             
                             // Find current destination
                             const dest = getCurrentDestination(progress);
@@ -1804,6 +1885,8 @@
                 }
             });
         }
+        
+        setupScrollTrigger();
         
         // ============================================
         // OTHER ANIMATIONS
@@ -1859,18 +1942,31 @@
             console.log('CTA animation skipped');
         }
         
-        // Image loading error handling
+        // Image loading error handling - improved
         document.querySelectorAll('.day-photo img').forEach(img => {
+            // Set initial state
+            if (!img.complete) {
+                img.classList.add('loading');
+            }
+            
             img.addEventListener('error', function() {
                 console.warn('Failed to load image:', this.src);
-                this.parentElement.style.display = 'none';
+                this.parentElement.style.opacity = '0.3';
+                this.style.opacity = '0';
             });
             
             // Ensure images are visible when loaded
             img.addEventListener('load', function() {
+                this.classList.remove('loading');
                 this.style.opacity = '1';
                 this.parentElement.style.opacity = '1';
             });
+            
+            // If already loaded, ensure visibility
+            if (img.complete && img.naturalHeight !== 0) {
+                img.style.opacity = '1';
+                img.parentElement.style.opacity = '1';
+            }
         });
         
         // Smooth scroll
