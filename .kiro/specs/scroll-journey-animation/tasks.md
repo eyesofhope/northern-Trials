@@ -1,0 +1,118 @@
+# Implementation Plan
+
+- [x] 1. Set up journey section HTML structure
+  - [x] 1.1 Create the journey section container with full-viewport height for scroll animation
+    - Add `#journeySection` with pinned scroll behavior
+    - Create background layer container `#journeyBackground` with two image elements for crossfade
+    - _Requirements: 2.1, 2.4_
+  - [x] 1.2 Create SVG road path with winding mountain route
+    - Design SVG path that winds vertically through the viewport
+    - Add destination marker circles at each stop
+    - Include path background (faint) and progress path (animated)
+    - _Requirements: 4.1, 4.3_
+  - [x] 1.3 Create bus element with CSS styling
+    - Build bus icon using CSS (windows, wheels, body)
+    - Position bus element for path following
+    - _Requirements: 1.1, 1.4_
+  - [x] 1.4 Create destination label overlay
+    - Add label container with day number and place name
+    - Style with fade animation classes
+    - _Requirements: 3.1, 3.3_
+  - [x] 1.5 Create progress indicator UI
+    - Add vertical progress bar with destination dots
+    - Style active/inactive states
+    - _Requirements: 7.1, 7.2_
+
+- [x] 2. Implement core animation logic
+  - [x] 2.1 Create journey configuration data structure
+    - Define destinations array with all 20 stops
+    - Map each destination to image path and progress value
+    - Group destinations by day
+    - _Requirements: 6.1, 6.2, 6.3_
+  - [x] 2.2 Write property test for destination-to-image mapping
+    - **Property 6: Destination-to-Image Mapping**
+    - **Validates: Requirements 6.2**
+  - [x]* 2.3 Write property test for destination day grouping
+    - **Property 7: Destination Day Grouping**
+    - **Validates: Requirements 6.3**
+  - [x] 2.4 Implement PathManager for SVG path calculations
+    - Create `getPointAtProgress(progress)` using SVG `getPointAtLength()`
+    - Create `getRotationAtProgress(progress)` calculating path tangent
+    - Create `updateRoadStroke(progress)` for stroke-dashoffset animation
+    - _Requirements: 1.1, 1.2, 4.1_
+  - [x]* 2.5 Write property test for scroll-to-position mapping
+    - **Property 1: Scroll-to-Position Mapping**
+    - **Validates: Requirements 1.1**
+  - [x]* 2.6 Write property test for bus rotation
+    - **Property 2: Bus Rotation Matches Path Tangent**
+    - **Validates: Requirements 1.2**
+  - [x]* 2.7 Write property test for road stroke progress
+    - **Property 5: Road Stroke Progress Mapping**
+    - **Validates: Requirements 4.1**
+
+- [x] 3. Implement background and label managers
+  - [x] 3.1 Implement BackgroundManager for image transitions
+    - Create `preloadImages()` to load all destination images
+    - Create `transitionTo(destination)` with crossfade effect
+    - Create `getCurrentDestination(progress)` to find active destination
+    - _Requirements: 2.1, 2.2, 2.3_
+  - [x]* 3.2 Write property test for background selection
+    - **Property 3: Background Selection Consistency**
+    - **Validates: Requirements 2.1, 2.3**
+  - [x] 3.3 Implement LabelManager for destination labels
+    - Create `formatLabel(destination)` returning "Day X - Name"
+    - Create `showLabel(destination)` with fade-in animation
+    - Create `hideLabel()` with fade-out animation
+    - _Requirements: 3.1, 3.2, 3.3_
+  - [x]* 3.4 Write property test for label format
+    - **Property 4: Label Format Correctness**
+    - **Validates: Requirements 3.3**
+
+- [x] 4. Implement GSAP ScrollTrigger integration
+  - [x] 4.1 Set up GSAP ScrollTrigger for journey section
+    - Configure pinning for full-screen scroll experience
+    - Set up scrub for smooth scroll-linked animation
+    - _Requirements: 1.1, 1.3_
+  - [x] 4.2 Create JourneyController to orchestrate all components
+    - Initialize all managers on page load
+    - Create `update(progress)` method called by ScrollTrigger
+    - Wire up PathManager, BackgroundManager, LabelManager
+    - _Requirements: 1.1, 2.1, 3.1_
+  - [x] 4.3 Implement progress indicator updates
+    - Update progress bar fill based on scroll progress
+    - Highlight destination dots as bus passes them
+    - _Requirements: 7.1, 7.2, 7.3_
+
+- [x] 5. Checkpoint - Ensure all tests pass
+  - Ensure all tests pass, ask the user if questions arise.
+
+- [x] 6. Add responsive and mobile support
+  - [x] 6.1 Implement responsive layout for mobile devices
+    - Adjust SVG viewBox and path for vertical mobile layout
+    - Scale bus and markers appropriately
+    - Ensure touch scroll works smoothly
+    - _Requirements: 5.1, 5.3_
+  - [x] 6.2 Add performance optimizations
+    - Use `will-change` CSS property for animated elements
+    - Implement image lazy loading for backgrounds
+    - Add reduced motion media query support
+    - _Requirements: 5.2_
+
+- [x] 7. Integrate with existing package.html page
+  - [x] 7.1 Add journey section to package.html
+    - Insert journey section after hero/inclusions
+    - Link to journey.js script
+    - Add required CSS styles
+    - _Requirements: 1.4, 2.4_
+  - [x] 7.2 Copy himachal images to project images folder
+    - Copy all destination images from himachal folder
+    - Update image paths in configuration
+    - _Requirements: 6.2_
+  - [x] 7.3 Test full integration and polish
+    - Verify scroll animation works end-to-end
+    - Fine-tune timing and transitions
+    - Test on multiple browsers and devices
+    - _Requirements: 5.1, 5.2_
+
+- [x] 8. Final Checkpoint - Ensure all tests pass
+  - Ensure all tests pass, ask the user if questions arise.

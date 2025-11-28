@@ -1,0 +1,24 @@
+{
+  "name": "himalayan-escapes",
+  "version": "1.0.0",
+  "description": "Premium travel website for Himalayan Escapes - Chandigarh to Manali package",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "travel",
+    "manali",
+    "himachal",
+    "tourism",
+    "static-site"
+  ],
+  "author": "Himalayan Escapes",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^1.6.0",
+    "fast-check": "^3.15.0"
+  }
+}

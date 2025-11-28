@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northern Trials - Luxury Travel Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.0.0/dist/flowbite.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <style>
+        :root {
+          --background: oklch(0.98 0.005 85);
+          --foreground: oklch(0.15 0.02 85);
+          --card: oklch(0.99 0.003 85);
+          --card-foreground: oklch(0.15 0.02 85);
+          --popover: oklch(0.99 0.003 85);
+          --popover-foreground: oklch(0.15 0.02 85);
+          --primary: oklch(0.45 0.15 140);
+          --primary-foreground: oklch(0.98 0.005 85);
+          --secondary: oklch(0.85 0.08 45);
+          --secondary-foreground: oklch(0.15 0.02 85);
+          --muted: oklch(0.92 0.01 85);
+          --muted-foreground: oklch(0.55 0.02 85);
+          --accent: oklch(0.75 0.12 35);
+          --accent-foreground: oklch(0.15 0.02 85);
+          --destructive: oklch(0.55 0.18 25);
+          --destructive-foreground: oklch(0.98 0.005 85);
+          --border: oklch(0.88 0.005 85);
+          --input: oklch(0.88 0.005 85);
+          --ring: oklch(0.45 0.15 140);
+          --chart-1: oklch(0.45 0.15 140);
+          --chart-2: oklch(0.75 0.12 35);
+          --chart-3: oklch(0.65 0.10 55);
+          --chart-4: oklch(0.55 0.08 75);
+          --chart-5: oklch(0.50 0.12 95);
+          --sidebar: oklch(0.99 0.003 85);
+          --sidebar-foreground: oklch(0.15 0.02 85);
+          --sidebar-primary: oklch(0.45 0.15 140);
+          --sidebar-primary-foreground: oklch(0.98 0.005 85);
+          --sidebar-accent: oklch(0.85 0.08 45);
+          --sidebar-accent-foreground: oklch(0.15 0.02 85);
+          --sidebar-border: oklch(0.88 0.005 85);
+          --sidebar-ring: oklch(0.45 0.15 140);
+          --font-sans: Inter, sans-serif;
+          --font-serif: Playfair Display, serif;
+          --font-mono: Space Mono, monospace;
+          --radius: 0.75rem;
+          --shadow-2xs: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+          --shadow-xs: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+          --shadow-sm: 0 1px 3px 0 hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
+          --shadow: 0 1px 3px 0 hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
+          --shadow-md: 0 1px 3px 0 hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10);
+          --shadow-lg: 0 1px 3px 0 hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10);
+          --shadow-xl: 0 1px 3px 0 hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
+          --shadow-2xl: 0 1px 3px 0 hsl(0 0% 0% / 0.25);
+          --tracking-normal: 0em;
+          --spacing: 0.25rem;
+
+          --radius-sm: calc(var(--radius) - 4px);
+          --radius-md: calc(var(--radius) - 2px);
+          --radius-lg: var(--radius);
+          --radius-xl: calc(var(--radius) + 4px);
+        }
+        body {
+            font-family: var(--font-sans) !important;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif) !important;
+        }
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .destination-card:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+        .destination-card {
+            transition: all 0.5s ease-out;
+        }
+        .destination-card:hover {
+            transform: translateY(-5px);
+        }
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .menu-item:hover {
+            transform: translateY(-2px);
+            background-color: var(--accent);
+        }
+        .menu-item {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: scale(0.98);
+            box-shadow: var(--shadow-lg);
+        }
+        .cta-button {
+            transition: all 0.2s ease;
+        }
+        .icon-rotate:hover {
+            animation: rotate 0.3s ease;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground">
+    <!-- Header -->
+    <header class="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 border-b border-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-primary">Northern Trials</h1>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="menu-item text-foreground hover:text-primary px-3 py-2 rounded-md">Home</a>
+                    <a href="#destinations" class="menu-item text-foreground hover:text-primary px-3 py-2 rounded-md">Destinations</a>
+                    <a href="#tours" class="menu-item text-foreground hover:text-primary px-3 py-2 rounded-md">Tours</a>
+                    <a href="#about" class="menu-item text-foreground hover:text-primary px-3 py-2 rounded-md">About</a>
+                    <a href="#contact" class="menu-item text-foreground hover:text-primary px-3 py-2 rounded-md">Contact</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <button class="text-foreground hover:text-primary">Sign In</button>
+                    <button class="cta-button bg-primary text-primary-foreground px-4 py-2 rounded-lg font-medium">Book Now</button>
+                    <button class="md:hidden" data-collapse-toggle="mobile-menu">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-border">
+                <a href="#home" class="block px-3 py-2 text-foreground hover:text-primary">Home</a>
+                <a href="#destinations" class="block px-3 py-2 text-foreground hover:text-primary">Destinations</a>
+                <a href="#tours" class="block px-3 py-2 text-foreground hover:text-primary">Tours</a>
+                <a href="#about" class="block px-3 py-2 text-foreground hover:text-primary">About</a>
+                <a href="#contact" class="block px-3 py-2 text-foreground hover:text-primary">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4 fade-in">
+            <h2 class="text-5xl md:text-7xl font-bold mb-6">Discover Your Next Adventure</h2>
+            <p class="text-xl md:text-2xl mb-8 opacity-90">Embark on journeys that transform your soul and create memories that last a lifetime.</p>
+            <!-- Search Bar -->
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-2xl mx-auto fade-in stagger-1">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <input type="text" placeholder="Where to?" class="bg-white/20 border border-white/30 rounded-lg px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <input type="date" class="bg-white/20 border border-white/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary">
+                    <input type="date" class="bg-white/20 border border-white/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary">
+                    <input type="number" placeholder="Travelers" min="1" class="bg-white/20 border border-white/30 rounded-lg px-4 py-3 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+                <button class="cta-button w-full mt-4 bg-primary text-primary-foreground py-3 rounded-lg font-semibold text-lg">Start Planning</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Destinations -->
+    <section id="destinations" class="py-20 bg-muted">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl font-bold text-center mb-12 fade-in">Featured Destinations</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="destination-card bg-card rounded-xl overflow-hidden shadow-lg fade-in stagger-1">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mountain Adventure" class="w-full h-64 object-cover transition-transform duration-400">
+                    <div class="p-6">
+                        <h4 class="text-2xl font-semibold mb-2">Alpine Peaks</h4>
+                        <p class="text-muted-foreground mb-4">Experience the majesty of towering mountains and pristine wilderness.</p>
+                        <button class="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium hover:bg-primary/90">Explore</button>
+                    </div>
+                </div>
+                <div class="destination-card bg-card rounded-xl overflow-hidden shadow-lg fade-in stagger-2">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Forest Retreat" class="w-full h-64 object-cover transition-transform duration-400">
+                    <div class="p-6">
+                        <h4 class="text-2xl font-semibold mb-2">Enchanted Forests</h4>
+                        <p class="text-muted-foreground mb-4">Immerse yourself in ancient woodlands and hidden natural wonders.</p>
+                        <button class="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium hover:bg-primary/90">Explore</button>
+                    </div>
+                </div>
+                <div class="destination-card bg-card rounded-xl overflow-hidden shadow-lg fade-in stagger-3">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Coastal Escape" class="w-full h-64 object-cover transition-transform duration-400">
+                    <div class="p-6">
+                        <h4 class="text-2xl font-semibold mb-2">Coastal Paradises</h4>
+                        <p class="text-muted-foreground mb-4">Discover serene beaches and crystal-clear waters calling your name.</p>
+                        <button class="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium hover:bg-primary/90">Explore</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl font-bold text-center mb-12 fade-in">Why Choose Northern Trials</h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center fade-in stagger-1">
+                    <i data-lucide="users" class="w-16 h-16 text-primary mx-auto mb-4 icon-rotate"></i>
+                    <h4 class="text-xl font-semibold mb-2">Personalized Service</h4>
+                    <p class="text-muted-foreground">Tailored experiences designed just for you.</p>
+                </div>
+                <div class="text-center fade-in stagger-2">
+                    <i data-lucide="dollar-sign" class="w-16 h-16 text-primary mx-auto mb-4 icon-rotate"></i>
+                    <h4 class="text-xl font-semibold mb-2">Best Prices</h4>
+                    <p class="text-muted-foreground">Competitive rates without compromising quality.</p>
+                </div>
+                <div class="text-center fade-in stagger-3">
+                    <i data-lucide="clock" class="w-16 h-16 text-primary mx-auto mb-4 icon-rotate"></i>
+                    <h4 class="text-xl font-semibold mb-2">24/7 Support</h4>
+                    <p class="text-muted-foreground">Round-the-clock assistance for peace of mind.</p>
+                </div>
+                <div class="text-center fade-in stagger-4">
+                    <i data-lucide="leaf" class="w-16 h-16 text-primary mx-auto mb-4 icon-rotate"></i>
+                    <h4 class="text-xl font-semibold mb-2">Sustainable Travel</h4>
+                    <p class="text-muted-foreground">Eco-friendly journeys that protect our planet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-muted">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl font-bold text-center mb-12 fade-in">What Our Travelers Say</h3>
+            <div class="relative overflow-hidden">
+                <div class="flex transition-transform duration-600" id="testimonial-slider">
+                    <div class="flex-shrink-0 w-full text-center">
+                        <blockquote class="text-2xl italic mb-6">"Northern Trials turned our dream vacation into an unforgettable reality. Every detail was perfect!"</blockquote>
+                        <div class="flex items-center justify-center space-x-4">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Sarah Johnson" class="w-16 h-16 rounded-full">
+                            <div>
+                                <p class="font-semibold">Sarah Johnson</p>
+                                <p class="text-muted-foreground">Adventure Enthusiast</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 w-full text-center">
+                        <blockquote class="text-2xl italic mb-6">"The personalized service and attention to detail made our trip truly special."</blockquote>
+                        <div class="flex items-center justify-center space-x-4">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Michael Chen" class="w-16 h-16 rounded-full">
+                            <div>
+                                <p class="font-semibold">Michael Chen</p>
+                                <p class="text-muted-foreground">Nature Photographer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-primary text-primary-foreground p-2 rounded-full" onclick="prevTestimonial()">
+                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                </button>
+                <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-primary text-primary-foreground p-2 rounded-full" onclick="nextTestimonial()">
+                    <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-card py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Northern Trials</h4>
+                    <p class="text-muted-foreground">Crafting extraordinary travel experiences since 2010.</p>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-muted-foreground hover:text-primary">About Us</a></li>
+                        <li><a href="#" class="text-muted-foreground hover:text-primary">Destinations</a></li>
+                        <li><a href="#" class="text-muted-foreground hover:text-primary">Tours</a></li>
+                        <li><a href="#" class="text-muted-foreground hover:text-primary">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4">Support</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-muted-foreground hover:text-primary">Help Center</a></li>
+                        <li><a href="#" class="text-muted-foreground hover:text-primary">Booking Terms</a></li>
+                        <li><a href="#" class="text-muted-foreground hover:text-primary">Privacy Policy</a></li>
+                        <li><a href="#" class="text-muted-foreground hover:text-primary">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4">Stay Connected</h5>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-muted-foreground hover:text-primary"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-muted-foreground hover:text-primary"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-muted-foreground hover:text-primary"><i data-lucide="twitter" class="w-6 h-6"></i></a>
+                    </div>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="flex-1 px-3 py-2 border border-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button class="bg-primary text-primary-foreground px-4 py-2 rounded-r-lg hover:bg-primary/90">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
+                <p>&copy; 2024 Northern Trials. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('#testimonial-slider > div');
+        const totalTestimonials = testimonials.length;
+
+        function showTestimonial(index) {
+            const slider = document.getElementById('testimonial-slider');
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+            showTestimonial(currentTestimonial);
+        }
+
+        function prevTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
+            showTestimonial(currentTestimonial);
+        }
+
+        // Auto-slide testimonials every 5 seconds
+        setInterval(nextTestimonial, 5000);
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

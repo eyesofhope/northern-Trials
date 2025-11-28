@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chandigarh to Manali 4D/3N Package - ₹5,999 per person. Complete itinerary with interactive route map.">
+    <title>Chandigarh to Manali 4D/3N • ₹5,999 | Himalayan Escapes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --forest: #2d5a4a;
+            --forest-light: #3d7a64;
+            --gold: #c9a86c;
+            --cream: #f9f7f4;
+            --white: #ffffff;
+            --dark: #1a1a1a;
+            --gray: #6b6b6b;
+            --light-gray: #e8e5e0;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+        
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 30px rgba(0,0,0,0.06);
+        }
+        
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--dark);
+            text-decoration: none;
+            font-style: italic;
+        }
+        
+        .logo span { color: var(--forest); font-style: normal; }
+        
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover { color: var(--forest); }
+        
+        .nav-btn {
+            background: var(--forest);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn:hover { background: var(--forest-light); }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--dark);
+            margin: 5px 0;
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 160px 5% 100px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+            text-align: center;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201,168,108,0.15);
+            color: var(--gold);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 16px;
+        }
+        
+        .hero h1 span { color: var(--forest); }
+        
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .hero-price {
+            margin-bottom: 32px;
+        }
+        
+        .hero-price .amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 4.5rem);
+            color: var(--gold);
+            font-weight: 600;
+        }
+        
+        .hero-price .per {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-left: 8px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: var(--forest);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            background: var(--forest-light);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--dark);
+            padding: 14px 32px;
+            border: 1.5px solid var(--light-gray);
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline:hover {
+            border-color: var(--forest);
+            color: var(--forest);
+        }
+        
+        /* Inclusions */
+        .inclusions {
+            padding: 60px 5%;
+            background: var(--white);
+        }
+        
+        .inclusions-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+        }
+        
+        .inclusion-item {
+            text-align: center;
+            padding: 24px 16px;
+            background: var(--cream);
+            border-radius: 12px;
+            transition: all 0.3s;
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .inclusion-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .inclusion-item .icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .inclusion-item h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--dark);
+        }
+        
+        .inclusion-item p {
+            font-size: 0.75rem;
+            color: #5a5a5a;
+            font-weight: 500;
+        }
+
+
+        /* Journey Scroll Animation */
+        .journey-scroll-section {
+            position: relative;
+            height: 400vh;
+        }
+        
+        .journey-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            background: #1a1a1a;
+        }
+        
+        /* Performance optimizations - GPU acceleration */
+        .journey-bus,
+        .journey-road-progress {
+            will-change: transform;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .journey-bg-current, .journey-bg-next { transition: none !important; }
+            .journey-place-name { transition: none !important; }
+            .journey-bus { transition: none !important; }
+        }
+        
+        /* Background Layer - Optimized dual-layer crossfade */
+        .journey-background {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: #1a1a1a;
+        }
+        
+        /* Two-layer crossfade system for smooth transitions */
+        .journey-bg-current,
+        .journey-bg-next {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+        
+        .journey-bg-current {
+            z-index: 1;
+            opacity: 1;
+        }
+        
+        .journey-bg-next {
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.4s ease-out;
+        }
+        
+        .journey-bg-next.transitioning {
+            opacity: 1;
+        }
+        
+        /* Overlay - separate layer above backgrounds */
+        .journey-bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,0.50) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.30) 100%);
+            z-index: 3;
+            pointer-events: none;
+        }
+        
+        /* Loading indicator */
+        .journey-loading {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1a1a1a;
+            z-index: 10;
+            transition: opacity 0.5s ease;
+        }
+        
+        .journey-loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .journey-loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(201,168,108,0.3);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Content Layer */
+        .journey-content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            padding: 80px 5%;
+            pointer-events: none;
+        }
+        
+        .journey-content * {
+            pointer-events: auto;
+        }
+        
+        /* Left Info Panel */
+        .journey-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            max-width: 500px;
+        }
+        
+        .journey-day-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold) 0%, #d4b87a 100%);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            width: fit-content;
+            box-shadow: 0 4px 20px rgba(201,168,108,0.6), 0 2px 8px rgba(0,0,0,0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .journey-place-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 500;
+            margin-bottom: 16px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+            text-shadow: 0 3px 25px rgba(0,0,0,0.8), 0 1px 5px rgba(0,0,0,0.6);
+            color: #ffffff;
+        }
+        
+        .journey-place-name.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .journey-place-desc {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.95);
+            max-width: 420px;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        /* Road Container */
+        .journey-road-container {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 70vh;
+            z-index: 5;
+        }
+        
+        .journey-road-svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .journey-road-bg {
+            fill: none;
+            stroke: rgba(255,255,255,0.15);
+            stroke-width: 10;
+            stroke-linecap: round;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+        
+        .journey-road-progress {
+            fill: none;
+            stroke: url(#roadGrad);
+            stroke-width: 7;
+            stroke-linecap: round;
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            filter: drop-shadow(0 0 8px rgba(201,168,108,0.5));
+        }
+        
+        /* Destination Markers */
+        .journey-marker {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: rgba(255,255,255,0.3);
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+        }
+        
+        .journey-marker.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(201,168,108,0.6);
+            transform: translate(-50%, -50%) scale(1.3);
+        }
+        
+        .journey-marker.passed {
+            background: var(--forest);
+            border-color: var(--forest);
+        }
+        
+        /* Bus */
+        .journey-bus {
+            position: absolute;
+            width: 54px;
+            height: 30px;
+            z-index: 20;
+            transform: translate(-50%, -50%);
+            filter: drop-shadow(0 6px 15px rgba(0,0,0,0.5));
+        }
+        
+        .journey-bus-body {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, var(--forest) 0%, var(--forest-light) 100%);
+            border-radius: 8px 8px 5px 5px;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .journey-bus-windows {
+            position: absolute;
+            top: 4px;
+            left: 5px;
+            right: 5px;
+            height: 10px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 3px;
+            display: flex;
+            gap: 2px;
+            padding: 2px;
+        }
+        
+        .journey-bus-window {
+            flex: 1;
+            background: #87ceeb;
+            border-radius: 2px;
+        }
+        
+        .journey-bus-wheels {
+            position: absolute;
+            bottom: -5px;
+            left: 8px;
+            right: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .journey-bus-wheel {
+            width: 10px;
+            height: 10px;
+            background: #333;
+            border-radius: 50%;
+        }
+        
+        /* Progress Indicator */
+        .journey-progress {
+            position: absolute;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 15;
+        }
+        
+        .journey-progress-dot {
+            width: 10px;
+            height: 10px;
+            background: rgba(255,255,255,0.25);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .journey-progress-dot:hover {
+            background: rgba(255,255,255,0.5);
+            transform: scale(1.2);
+        }
+        
+        .journey-progress-dot.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(201,168,108,0.6);
+            transform: scale(1.3);
+        }
+        
+        .journey-progress-dot.passed {
+            background: var(--forest);
+            border-color: var(--forest);
+        }
+        
+        /* Scroll Hint */
+        .journey-scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            animation: bounce 2s infinite;
+        }
+        
+        .journey-scroll-hint svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+        
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-tag {
+            color: var(--forest);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 10px;
+        }
+        
+        .section-header p {
+            color: var(--gray);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .journey-road-container {
+                right: 5%;
+                width: 200px;
+            }
+            
+            .journey-info {
+                max-width: 400px;
+            }
+            
+            .inclusions-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .day-card {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .day-card:nth-child(even) {
+                direction: ltr;
+            }
+            
+            .day-photos {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links, .nav-btn {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .journey-scroll-section {
+                height: 300vh;
+            }
+            
+            .journey-content {
+                flex-direction: column;
+                padding: 100px 5% 80px;
+                justify-content: flex-start;
+            }
+            
+            .journey-info {
+                max-width: 100%;
+                text-align: center;
+                align-items: center;
+                padding-top: 20px;
+            }
+            
+            .journey-place-name {
+                font-size: clamp(1.8rem, 8vw, 2.5rem);
+            }
+            
+            .journey-place-desc {
+                font-size: 0.9rem;
+                max-width: 100%;
+                padding: 0 10px;
+            }
+            
+            .journey-road-container {
+                position: absolute;
+                right: auto;
+                left: 50%;
+                top: auto;
+                bottom: 15%;
+                transform: translateX(-50%);
+                width: 90%;
+                height: 120px;
+            }
+            
+            .journey-road-svg {
+                transform: rotate(-90deg);
+            }
+            
+            .journey-bus {
+                width: 40px;
+                height: 22px;
+            }
+            
+            .journey-progress {
+                flex-direction: row;
+                top: auto;
+                bottom: 80px;
+                left: 50%;
+                transform: translateX(-50%);
+                gap: 6px;
+                flex-wrap: wrap;
+                max-width: 90%;
+                justify-content: center;
+            }
+            
+            .journey-progress-dot {
+                width: 10px;
+                height: 10px;
+            }
+            
+            .journey-scroll-hint {
+                bottom: 15px;
+                font-size: 0.75rem;
+            }
+            
+            .journey-bg-overlay {
+                background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.20) 40%, rgba(0,0,0,0.45) 100%);
+            }
+            
+            .journey-loading {
+                z-index: 20;
+            }
+            
+            .inclusions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-meta {
+                gap: 16px;
+            }
+            
+            .hero-btns, .cta-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary, .btn-outline, .btn-white, .btn-ghost {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+            
+            .day-photos {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .day-photo:first-child {
+                grid-column: span 2;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .journey-place-name {
+                font-size: 1.6rem;
+            }
+            
+            .journey-day-badge {
+                font-size: 0.75rem;
+                padding: 6px 16px;
+            }
+            
+            .journey-road-container {
+                height: 100px;
+                bottom: 18%;
+            }
+            
+            .journey-progress {
+                bottom: 60px;
+            }
+            
+            .inclusions-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            
+            .inclusion-item {
+                padding: 16px 10px;
+            }
+            
+            .inclusion-item .icon {
+                font-size: 1.4rem;
+            }
+            
+            .inclusion-item h4 {
+                font-size: 0.75rem;
+            }
+        }
+        
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .journey-scroll-section {
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .highlight:hover {
+                transform: none;
+                box-shadow: none;
+            }
+            
+            .day-photo:hover {
+                transform: none;
+            }
+            
+            .day-photo:hover img {
+                transform: none;
+            }
+        }
+        
+        /* Days */
+        .days-section {
+            padding: 80px 5%;
+            background: var(--white);
+        }
+        
+        .days-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .day-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 100px;
+            align-items: start;
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .day-card:nth-child(even) {
+            direction: rtl;
+        }
+        
+        .day-card:nth-child(even) > * {
+            direction: ltr;
+        }
+        
+        .day-info {
+            padding: 10px 0;
+        }
+        
+        .day-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--forest), var(--forest-light));
+            border-radius: 14px;
+            color: white;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(45,90,74,0.3);
+        }
+        
+        .day-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+        
+        .day-route {
+            color: #5a5a5a;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .day-desc {
+            color: #4a4a4a;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-size: 0.98rem;
+        }
+        
+        .day-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .highlight {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--cream);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .highlight:hover {
+            transform: translateX(6px);
+            background: var(--white);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .highlight-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--white);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .highlight span {
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+        
+        /* Photos */
+        .day-photos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        
+        .day-photo {
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .day-photo:first-child {
+            grid-column: span 3;
+            aspect-ratio: 16/9;
+        }
+        
+        .day-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+            background: var(--cream);
+            display: block;
+        }
+        
+        .day-photo img[src=""],
+        .day-photo img:not([src]) {
+            opacity: 0;
+        }
+        
+        .day-photo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .day-photo:hover img {
+            transform: scale(1.05);
+        }
+        
+        .photo-label {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(255,255,255,0.98);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        /* CTA */
+        .cta-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, var(--forest) 0%, var(--forest-light) 100%);
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 12px;
+            color: white;
+        }
+        
+        .cta-section > p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 28px;
+        }
+        
+        .cta-price {
+            margin-bottom: 28px;
+        }
+        
+        .cta-price .amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+        
+        .cta-price .per {
+            color: rgba(255,255,255,0.7);
+            margin-left: 8px;
+        }
+        
+        .cta-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-white {
+            background: white;
+            color: var(--forest);
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            color: white;
+            padding: 14px 32px;
+            border: 1.5px solid rgba(255,255,255,0.4);
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-ghost:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 5%;
+        }
+        
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 28px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover { color: white; }
+        
+        .footer-copy {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+        
+        /* WhatsApp */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 56px;
+            height: 56px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.6rem;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+            z-index: 100;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--white);
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s;
+        }
+        
+        .mobile-menu.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .mobile-menu a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .inclusions-grid { grid-template-columns: repeat(3, 1fr); }
+            .day-card { grid-template-columns: 1fr; gap: 30px; }
+            .day-card:nth-child(even) { direction: ltr; }
+            .day-photos { order: -1; }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links, .nav-btn { display: none; }
+            .menu-toggle { display: block; }
+            .inclusions-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-meta { gap: 16px; }
+            .hero-btns, .cta-btns { flex-direction: column; align-items: center; }
+            .btn-primary, .btn-outline, .btn-white, .btn-ghost { width: 100%; max-width: 280px; text-align: center; }
+            .day-photos { grid-template-columns: 1fr 1fr; }
+            .day-photo:first-child { grid-column: span 2; }
+            .map-container { padding: 24px; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-links { flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo"><span>Himalayan</span> Escapes</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="#itinerary">Itinerary</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <a href="https://wa.me/917907273137?text=Hi%2C%20I%20want%20to%20book%20the%20Manali%20package" class="nav-btn" target="_blank">Book Now</a>
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" onclick="toggleMenu()">Home</a>
+        <a href="index.html#about" onclick="toggleMenu()">About</a>
+        <a href="#itinerary" onclick="toggleMenu()">Itinerary</a>
+        <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">🔥 Most Popular Package</div>
+        <h1>Chandigarh to <span>Manali</span></h1>
+        <div class="hero-meta">
+            <div class="meta-item">📅 4 Days / 3 Nights</div>
+            <div class="meta-item">🚌 Volvo AC Bus</div>
+            <div class="meta-item">🏨 Deluxe Hotels</div>
+            <div class="meta-item">🍽️ All Meals</div>
+        </div>
+        <div class="hero-price">
+            <span class="amount">₹5,999</span>
+            <span class="per">per person</span>
+        </div>
+        <div class="hero-btns">
+            <a href="https://wa.me/917907273137?text=Hi%2C%20I%20want%20to%20book%20the%20Manali%20package%20at%20₹5999" class="btn-primary" target="_blank">Book on WhatsApp 💬</a>
+            <a href="#itinerary" class="btn-outline">View Itinerary ↓</a>
+        </div>
+    </section>
+    
+    <!-- Inclusions -->
+    <section class="inclusions">
+        <div class="inclusions-grid">
+            <div class="inclusion-item">
+                <div class="icon">🚌</div>
+                <h4>Volvo AC Bus</h4>
+                <p>2×2 Seating</p>
+            </div>
+            <div class="inclusion-item">
+                <div class="icon">🏨</div>
+                <h4>3N Hotel Stay</h4>
+                <p>Deluxe Rooms</p>
+            </div>
+            <div class="inclusion-item">
+                <div class="icon">🍽️</div>
+                <h4>All Meals</h4>
+                <p>B/L/D Included</p>
+            </div>
+            <div class="inclusion-item">
+                <div class="icon">🗺️</div>
+                <h4>Sightseeing</h4>
+                <p>All Locations</p>
+            </div>
+            <div class="inclusion-item">
+                <div class="icon">🅿️</div>
+                <h4>Toll & Parking</h4>
+                <p>Included</p>
+            </div>
+            <div class="inclusion-item">
+                <div class="icon">👨‍✈️</div>
+                <h4>Trip Captain</h4>
+                <p>24×7 Support</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Journey Scroll Animation -->
+    <section class="journey-scroll-section" id="itinerary">
+        <div class="journey-container">
+            <!-- Loading Indicator -->
+            <div class="journey-loading" id="journeyLoading">
+                <div class="journey-loading-spinner"></div>
+            </div>
+            
+            <!-- Background - Optimized dual-layer system -->
+            <div class="journey-background" id="journeyBackground">
+                <div class="journey-bg-current" id="journeyBgCurrent"></div>
+                <div class="journey-bg-next" id="journeyBgNext"></div>
+                <div class="journey-bg-overlay"></div>
+            </div>
+            
+            <!-- Content -->
+            <div class="journey-content">
+                <!-- Info Panel -->
+                <div class="journey-info">
+                    <div class="journey-day-badge" id="journeyDayBadge">Day 1</div>
+                    <h2 class="journey-place-name active" id="journeyPlaceName">Chandigarh</h2>
+                    <p class="journey-place-desc" id="journeyPlaceDesc">Your Himalayan adventure begins! Board the Volvo bus and start your journey to the mountains.</p>
+                </div>
+                
+                <!-- Road with Bus -->
+                <div class="journey-road-container">
+                    <svg class="journey-road-svg" viewBox="0 0 200 500" preserveAspectRatio="xMidYMid meet">
+                        <defs>
+                            <linearGradient id="roadGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2d5a4a"/>
+                                <stop offset="100%" style="stop-color:#c9a86c"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Road Background -->
+                        <path class="journey-road-bg" id="journeyRoadBg" d="M 100 20 Q 50 80 100 140 Q 150 200 100 260 Q 50 320 100 380 Q 150 440 100 480"/>
+                        <!-- Road Progress -->
+                        <path class="journey-road-progress" id="journeyRoadProgress" d="M 100 20 Q 50 80 100 140 Q 150 200 100 260 Q 50 320 100 380 Q 150 440 100 480"/>
+                    </svg>
+                    
+                    <!-- Bus Element -->
+                    <div class="journey-bus" id="journeyBus">
+                        <div class="journey-bus-body">
+                            <div class="journey-bus-windows">
+                                <div class="journey-bus-window"></div>
+                                <div class="journey-bus-window"></div>
+                                <div class="journey-bus-window"></div>
+                            </div>
+                            <div class="journey-bus-wheels">
+                                <div class="journey-bus-wheel"></div>
+                                <div class="journey-bus-wheel"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Progress Indicator -->
+                <div class="journey-progress" id="journeyProgress"></div>
+            </div>
+            
+            <!-- Scroll Hint -->
+            <div class="journey-scroll-hint">
+                <span>Scroll to explore</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Days -->
+    <section class="days-section">
+        <div class="days-wrapper">
+            <!-- Day 1 -->
+            <div class="day-card">
+                <div class="day-info">
+                    <div class="day-number">01</div>
+                    <h3>The Road to Paradise</h3>
+                    <p class="day-route">Chandigarh → Bilaspur → Kullu → Manali</p>
+                    <p class="day-desc">Your Himalayan adventure begins as we leave the city behind. Wind through emerald valleys, pristine lakes, and sacred temples. Experience the thrill of river rafting and witness stunning mountain landscapes.</p>
+                    <div class="day-highlights">
+                        <div class="highlight"><div class="highlight-icon">🏞️</div><span>Bilaspur Lake</span></div>
+                        <div class="highlight"><div class="highlight-icon">🌊</div><span>Sundernagar & Pandoh Dam</span></div>
+                        <div class="highlight"><div class="highlight-icon">🛕</div><span>Vaishno Devi Temple</span></div>
+                        <div class="highlight"><div class="highlight-icon">🚣</div><span>White Water Rafting</span></div>
+                        <div class="highlight"><div class="highlight-icon">🪂</div><span>Paragliding (Optional)</span></div>
+                    </div>
+                </div>
+                <div class="day-photos">
+                    <div class="day-photo"><img src="images/day1.jpg" alt="Day 1 Journey"><div class="photo-label">Chandigarh to Manali</div></div>
+                    <div class="day-photo"><img src="images/Bilaspur Lake.jpeg" alt="Bilaspur Lake"><div class="photo-label">Bilaspur Lake</div></div>
+                    <div class="day-photo"><img src="images/Sundernagar Lake.jpeg" alt="Sundernagar Lake"><div class="photo-label">Sundernagar Lake</div></div>
+                    <div class="day-photo"><img src="images/Pandoh Dam.jpeg" alt="Pandoh Dam"><div class="photo-label">Pandoh Dam</div></div>
+                    <div class="day-photo"><img src="images/Vaishno Devi Temple.jpeg" alt="Vaishno Devi Temple"><div class="photo-label">Vaishno Devi Temple</div></div>
+                    <div class="day-photo"><img src="images/Rafting.jpeg" alt="River Rafting"><div class="photo-label">River Rafting</div></div>
+                </div>
+            </div>
+            
+            <!-- Day 2 -->
+            <div class="day-card">
+                <div class="day-info">
+                    <div class="day-number">02</div>
+                    <h3>Touch the Snow</h3>
+                    <p class="day-route">Solang Valley → Atal Tunnel → Sissu → Rohtang</p>
+                    <p class="day-desc">Witness engineering marvels and nature's grandeur. Drive through the world's longest high-altitude tunnel at 10,000 feet and play in pristine snow at Rohtang Pass.</p>
+                    <div class="day-highlights">
+                        <div class="highlight"><div class="highlight-icon">💧</div><span>Nehru Kund</span></div>
+                        <div class="highlight"><div class="highlight-icon">🎿</div><span>Solang Valley</span></div>
+                        <div class="highlight"><div class="highlight-icon">🚇</div><span>Atal Tunnel</span></div>
+                        <div class="highlight"><div class="highlight-icon">🏔️</div><span>Sissu Lake</span></div>
+                        <div class="highlight"><div class="highlight-icon">❄️</div><span>Rohtang Snow Point</span></div>
+                    </div>
+                </div>
+                <div class="day-photos">
+                    <div class="day-photo"><img src="images/day2.jpg" alt="Day 2 Snow Adventure"><div class="photo-label">Solang to Rohtang</div></div>
+                    <div class="day-photo"><img src="images/Solang Valley.jpeg" alt="Solang Valley"><div class="photo-label">Solang Valley</div></div>
+                    <div class="day-photo"><img src="images/Atal Tunnel.jpeg" alt="Atal Tunnel"><div class="photo-label">Atal Tunnel</div></div>
+                    <div class="day-photo"><img src="images/Sissu.jpeg" alt="Sissu Lake"><div class="photo-label">Sissu Lake</div></div>
+                    <div class="day-photo"><img src="images/WhatsApp Image 2025-11-27 at 21.02.28_bc986ced.jpg" alt="Rohtang Pass"><div class="photo-label">Rohtang Pass</div></div>
+                    <div class="day-photo"><img src="images/Mall Road.jpeg" alt="Mall Road"><div class="photo-label">Mall Road</div></div>
+                </div>
+            </div>
+            
+            <!-- Day 3 -->
+            <div class="day-card">
+                <div class="day-info">
+                    <div class="day-number">03</div>
+                    <h3>Heart of Manali</h3>
+                    <p class="day-route">Temples → Waterfalls → Hot Springs → Old Manali</p>
+                    <p class="day-desc">Immerse yourself in Manali's soul. Trek to hidden waterfalls, seek blessings at ancient temples, relax in natural hot springs, and wander through bohemian lanes of Old Manali.</p>
+                    <div class="day-highlights">
+                        <div class="highlight"><div class="highlight-icon">💦</div><span>Jogini Waterfall</span></div>
+                        <div class="highlight"><div class="highlight-icon">🛕</div><span>Hadimba Devi Temple</span></div>
+                        <div class="highlight"><div class="highlight-icon">🏘️</div><span>Old Manali</span></div>
+                        <div class="highlight"><div class="highlight-icon">♨️</div><span>Vashisht Hot Springs</span></div>
+                        <div class="highlight"><div class="highlight-icon">🙏</div><span>Tibetan Monastery</span></div>
+                    </div>
+                </div>
+                <div class="day-photos">
+                    <div class="day-photo"><img src="images/day3.jpg" alt="Day 3 Manali Local"><div class="photo-label">Heart of Manali</div></div>
+                    <div class="day-photo"><img src="images/Hadimba Devi Temple.jpeg" alt="Hadimba Temple"><div class="photo-label">Hadimba Temple</div></div>
+                    <div class="day-photo"><img src="images/Jogini Waterfall.jpeg" alt="Jogini Waterfall"><div class="photo-label">Jogini Waterfall</div></div>
+                    <div class="day-photo"><img src="images/Old Manali.jpeg" alt="Old Manali"><div class="photo-label">Old Manali</div></div>
+                    <div class="day-photo"><img src="images/Vashisht Temple.jpeg" alt="Vashisht Temple"><div class="photo-label">Vashisht Temple</div></div>
+                    <div class="day-photo"><img src="images/Tibetan Monastery.jpeg" alt="Tibetan Monastery"><div class="photo-label">Tibetan Monastery</div></div>
+                </div>
+            </div>
+            
+            <!-- Day 4 -->
+            <div class="day-card">
+                <div class="day-info">
+                    <div class="day-number">04</div>
+                    <h3>Farewell with Memories</h3>
+                    <p class="day-route">Naggar Castle → Return to Chandigarh</p>
+                    <p class="day-desc">As we bid goodbye to the mountains, we stop at the majestic Naggar Castle — a 500-year-old heritage marvel with panoramic views of the entire Kullu Valley. Carry home memories that last a lifetime.</p>
+                    <div class="day-highlights">
+                        <div class="highlight"><div class="highlight-icon">🏰</div><span>Naggar Castle</span></div>
+                        <div class="highlight"><div class="highlight-icon">🎨</div><span>Roerich Art Gallery</span></div>
+                        <div class="highlight"><div class="highlight-icon">🌲</div><span>Van Vihar Park</span></div>
+                        <div class="highlight"><div class="highlight-icon">📸</div><span>Valley Views</span></div>
+                        <div class="highlight"><div class="highlight-icon">🏠</div><span>Drop at Chandigarh</span></div>
+                    </div>
+                </div>
+                <div class="day-photos">
+                    <div class="day-photo"><img src="images/day4.jpeg" alt="Day 4 Return Journey"><div class="photo-label">Farewell to Mountains</div></div>
+                    <div class="day-photo"><img src="images/naggar castle.jpeg" alt="Naggar Castle"><div class="photo-label">Naggar Castle</div></div>
+                    <div class="day-photo"><img src="images/WhatsApp Image 2025-11-27 at 21.02.33_199d30b0.jpg" alt="Valley Views"><div class="photo-label">Valley Views</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Ready for Your Adventure?</h2>
+        <p>Limited seats available. Book now for an unforgettable experience.</p>
+        <div class="cta-price">
+            <span class="amount">₹5,999</span>
+            <span class="per">per person • All Inclusive</span>
+        </div>
+        <div class="cta-btns">
+            <a href="https://wa.me/917907273137?text=Hi%2C%20I%20want%20to%20book%20the%20Manali%20package" class="btn-white" target="_blank">Book on WhatsApp 💬</a>
+            <a href="tel:+917907273137" class="btn-ghost">Call: +91 79072 73137</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">Himalayan Escapes</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <p class="footer-copy">© 2025 Himalayan Escapes</p>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp -->
+    <a href="https://wa.me/917907273137" class="whatsapp-btn" target="_blank">💬</a>
+    
+    <script>
+        // Mobile menu
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+        
+        // GSAP
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Hero - with fallback
+        try {
+            gsap.from('.hero > *', { 
+                opacity: 0, y: 30, duration: 0.8, stagger: 0.15, delay: 0.2,
+                onComplete: () => {
+                    document.querySelectorAll('.hero > *').forEach(el => el.style.opacity = '1');
+                }
+            });
+        } catch(e) {
+            console.log('Hero animation skipped');
+            document.querySelectorAll('.hero > *').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+            });
+        }
+        
+        // Inclusions - with visibility fallback
+        try {
+            const inclusionItems = document.querySelectorAll('.inclusion-item');
+            if (inclusionItems.length > 0) {
+                gsap.from('.inclusion-item', {
+                    scrollTrigger: { 
+                        trigger: '.inclusions', 
+                        start: 'top 80%',
+                        once: true,
+                        onEnter: () => {
+                            // Ensure visibility
+                            inclusionItems.forEach(item => item.style.opacity = '1');
+                        }
+                    },
+                    opacity: 0, y: 20, duration: 0.5, stagger: 0.08
+                });
+            }
+        } catch(e) {
+            console.log('Inclusions animation skipped');
+            // Fallback: ensure inclusions are visible
+            document.querySelectorAll('.inclusion-item').forEach(item => {
+                item.style.opacity = '1';
+                item.style.transform = 'none';
+            });
+        }
+        
+        // ============================================
+        // JOURNEY SCROLL ANIMATION - OPTIMIZED
+        // ============================================
+        
+        const journeyConfig = {
+            destinations: [
+                { id: 'chandigarh', name: 'Chandigarh', day: 1, progress: 0, 
+                  image: 'images/Solang Valley.jpeg',
+                  desc: 'Your Himalayan adventure begins! Board the Volvo bus and embark on an unforgettable journey through the majestic Himalayas.' },
+                { id: 'bilaspur-lake', name: 'Bilaspur Lake', day: 1, progress: 0.05, 
+                  image: 'images/Bilaspur Lake.jpeg',
+                  desc: 'First stop at the serene Bilaspur Lake — a stunning reservoir surrounded by lush green hills and misty mountains.' },
+                { id: 'sundernagar-dam', name: 'Sundernagar Dam', day: 1, progress: 0.10, 
+                  image: 'images/Sundernagar Lake.jpeg',
+                  desc: 'Marvel at the engineering wonder of Sundernagar Dam with its crystal-clear waters reflecting the snow-capped peaks.' },
+                { id: 'pandoh-dam', name: 'Pandoh Dam', day: 1, progress: 0.15, 
+                  image: 'images/Pandoh Dam.jpeg',
+                  desc: 'Stop at the magnificent Pandoh Dam on the Beas River — a perfect spot for stunning photographs and fresh mountain air.' },
+                { id: 'vaishno-devi', name: 'Vaishno Devi Temple', day: 1, progress: 0.20, 
+                  image: 'images/Vaishno Devi Temple.jpeg',
+                  desc: 'Seek divine blessings at the sacred Vaishno Devi Temple in Kullu, nestled amidst ancient cedar forests.' },
+                { id: 'rafting', name: 'River Rafting', day: 1, progress: 0.25, 
+                  image: 'images/Rafting.jpeg',
+                  desc: 'Feel the adrenaline rush! Experience thrilling white water rafting through the rapids of the mighty Beas River.' },
+                { id: 'paragliding', name: 'Paragliding', day: 1, progress: 0.30, 
+                  image: 'images/Paragliding.jpeg',
+                  desc: 'Soar like an eagle over the breathtaking Kullu Valley! An optional adventure that offers bird\'s-eye views of the Himalayas.' },
+                { id: 'shawls-factory', name: 'Shawls Factory', day: 1, progress: 0.35, 
+                  image: 'images/Shawls Factory.jpeg',
+                  desc: 'Visit a traditional Kullu shawl factory and witness artisans weaving colorful masterpieces using age-old techniques.' },
+                { id: 'nehru-kund', name: 'Nehru Kund', day: 2, progress: 0.42, 
+                  image: 'images/Nehru Kund.jpeg',
+                  desc: 'Day 2 begins at Nehru Kund — a pristine natural spring named after Jawaharlal Nehru, surrounded by towering deodars.' },
+                { id: 'solang-valley', name: 'Solang Valley', day: 2, progress: 0.50, 
+                  image: 'images/Solang Valley.jpeg',
+                  desc: 'Welcome to adventure paradise! Solang Valley offers skiing, zorbing, and the most breathtaking snow-covered landscapes.' },
+                { id: 'atal-tunnel', name: 'Atal Tunnel', day: 2, progress: 0.58, 
+                  image: 'images/Atal Tunnel.jpeg',
+                  desc: 'Drive through the world\'s longest highway tunnel above 10,000 feet — a marvel of modern engineering at 9.02 km!' },
+                { id: 'mall-road', name: 'Mall Road', day: 2, progress: 0.65, 
+                  image: 'images/Mall Road.jpeg',
+                  desc: 'Evening magic at Manali\'s famous Mall Road! Shop for souvenirs, savor local delicacies, and soak in the mountain vibes.' },
+                { id: 'jogini-waterfall', name: 'Jogini Waterfall', day: 3, progress: 0.72, 
+                  image: 'images/Jogini Waterfall.jpeg',
+                  desc: 'Day 3 adventure begins with a scenic trek to the magical Jogini Waterfall — a 160-foot cascade of pure mountain water.' },
+                { id: 'hadimba-temple', name: 'Hadimba Devi Temple', day: 3, progress: 0.78, 
+                  image: 'images/Hadimba Devi Temple.jpeg',
+                  desc: 'Step into history at the 500-year-old Hadimba Temple — a wooden architectural marvel surrounded by ancient cedar forest.' },
+                { id: 'manu-temple', name: 'Manu Temple', day: 3, progress: 0.82, 
+                  image: 'images/Manu Temple.jpeg',
+                  desc: 'Pay respects at the ancient Manu Temple, dedicated to sage Manu — believed to be the creator of mankind in Hindu mythology.' },
+                { id: 'old-manali', name: 'Old Manali', day: 3, progress: 0.86, 
+                  image: 'images/Old Manali.jpeg',
+                  desc: 'Discover the bohemian soul of Old Manali — charming cafes, vibrant street art, and a laid-back hippie atmosphere.' },
+                { id: 'vashisht-temple', name: 'Vashisht Temple', day: 3, progress: 0.90, 
+                  image: 'images/Vashisht Temple.jpeg',
+                  desc: 'Rejuvenate in the natural hot springs at Vashisht Temple — sacred waters believed to have healing properties.' },
+                { id: 'van-vihar', name: 'Van Vihar', day: 3, progress: 0.94, 
+                  image: 'images/Van Vihar.jpeg',
+                  desc: 'Peaceful evening at Van Vihar — a serene park by the Beas River, perfect for boating and watching the sunset over mountains.' },
+                { id: 'naggar-castle', name: 'Naggar Castle', day: 4, progress: 1.0, 
+                  image: 'images/naggar castle.jpeg',
+                  desc: 'Grand finale at the 500-year-old Naggar Castle — a heritage marvel with panoramic views of the entire Kullu Valley.' }
+            ]
+        };
+        
+        // DOM Elements
+        const roadPath = document.getElementById('journeyRoadProgress');
+        const roadBg = document.getElementById('journeyRoadBg');
+        const bus = document.getElementById('journeyBus');
+        const dayBadge = document.getElementById('journeyDayBadge');
+        const placeName = document.getElementById('journeyPlaceName');
+        const placeDesc = document.getElementById('journeyPlaceDesc');
+        const progressContainer = document.getElementById('journeyProgress');
+        const bgCurrent = document.getElementById('journeyBgCurrent');
+        const bgNext = document.getElementById('journeyBgNext');
+        const loadingEl = document.getElementById('journeyLoading');
+        
+        // State
+        let pathLength = 0;
+        let currentDestIndex = 0;
+        let isTransitioning = false;
+        let preloadedImages = new Map();
+        let imagesLoaded = 0;
+        
+        // Preload all images for smooth transitions
+        async function preloadImages() {
+            const imagePromises = journeyConfig.destinations.map(dest => {
+                return new Promise((resolve) => {
+                    if (!dest.image) {
+                        resolve();
+                        return;
+                    }
+                    const img = new Image();
+                    img.onload = () => {
+                        preloadedImages.set(dest.id, dest.image);
+                        imagesLoaded++;
+                        resolve();
+                    };
+                    img.onerror = () => {
+                        console.warn(`Failed to load: ${dest.image}`);
+                        resolve();
+                    };
+                    img.src = dest.image;
+                });
+            });
+            
+            await Promise.all(imagePromises);
+            
+            // Hide loading, show first image
+            if (loadingEl) {
+                loadingEl.classList.add('hidden');
+            }
+            
+            // Set initial background
+            const firstDest = journeyConfig.destinations[0];
+            if (firstDest.image && bgCurrent) {
+                bgCurrent.style.backgroundImage = `url('${firstDest.image}')`;
+            }
+        }
+        
+        function initJourney() {
+            if (!roadPath || !bus) return;
+            
+            pathLength = roadPath.getTotalLength();
+            roadPath.style.strokeDasharray = pathLength;
+            roadPath.style.strokeDashoffset = pathLength;
+            
+            // Create progress dots
+            journeyConfig.destinations.forEach((dest, i) => {
+                const dot = document.createElement('div');
+                dot.className = 'journey-progress-dot';
+                dot.dataset.index = i;
+                dot.title = dest.name;
+                if (i === 0) dot.classList.add('active');
+                progressContainer.appendChild(dot);
+            });
+            
+            // Position bus at start
+            updateBusPosition(0);
+            
+            // Start preloading images
+            preloadImages();
+        }
+        
+        function getPointAtProgress(progress) {
+            const point = roadPath.getPointAtLength(progress * pathLength);
+            const svg = roadPath.ownerSVGElement;
+            const svgRect = svg.getBoundingClientRect();
+            const container = document.querySelector('.journey-road-container');
+            const containerRect = container.getBoundingClientRect();
+            
+            const viewBox = svg.viewBox.baseVal;
+            const scaleX = svgRect.width / viewBox.width;
+            const scaleY = svgRect.height / viewBox.height;
+            
+            return {
+                x: point.x * scaleX + (svgRect.left - containerRect.left),
+                y: point.y * scaleY + (svgRect.top - containerRect.top)
+            };
+        }
+        
+        function getRotationAtProgress(progress) {
+            const p1 = roadPath.getPointAtLength(Math.max(0, progress - 0.01) * pathLength);
+            const p2 = roadPath.getPointAtLength(Math.min(1, progress + 0.01) * pathLength);
+            return Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
+        }
+        
+        function updateBusPosition(progress) {
+            const pos = getPointAtProgress(progress);
+            const rotation = getRotationAtProgress(progress);
+            
+            bus.style.left = pos.x + 'px';
+            bus.style.top = pos.y + 'px';
+            bus.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+        }
+        
+        function getCurrentDestination(progress) {
+            let current = journeyConfig.destinations[0];
+            for (let i = journeyConfig.destinations.length - 1; i >= 0; i--) {
+                if (progress >= journeyConfig.destinations[i].progress) {
+                    current = journeyConfig.destinations[i];
+                    break;
+                }
+            }
+            return current;
+        }
+        
+        // Optimized background transition using dual-layer crossfade
+        function transitionBackground(dest) {
+            if (!dest.image || !bgCurrent || !bgNext) return;
+            
+            // Set the next image
+            bgNext.style.backgroundImage = `url('${dest.image}')`;
+            
+            // Trigger crossfade
+            bgNext.classList.add('transitioning');
+            
+            // After transition completes, swap layers
+            setTimeout(() => {
+                bgCurrent.style.backgroundImage = `url('${dest.image}')`;
+                bgNext.classList.remove('transitioning');
+            }, 400);
+        }
+        
+        function updateDestinationDisplay(dest, index) {
+            if (index === currentDestIndex) return;
+            currentDestIndex = index;
+            
+            // Update text with smooth animation
+            dayBadge.textContent = `Day ${dest.day}`;
+            placeName.classList.remove('active');
+            
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    placeName.textContent = dest.name;
+                    placeDesc.textContent = dest.desc;
+                    placeName.classList.add('active');
+                }, 150);
+            });
+            
+            // Transition background
+            transitionBackground(dest);
+            
+            // Update progress dots
+            document.querySelectorAll('.journey-progress-dot').forEach((dot, i) => {
+                dot.classList.remove('active', 'passed');
+                if (i < index) dot.classList.add('passed');
+                if (i === index) dot.classList.add('active');
+            });
+        }
+        
+        // Initialize journey
+        initJourney();
+        
+        // ScrollTrigger for journey - optimized with RAF
+        if (roadPath && bus) {
+            let lastProgress = -1;
+            
+            gsap.to(roadPath, {
+                strokeDashoffset: 0,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.journey-scroll-section',
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: 0.5,
+                    onUpdate: (self) => {
+                        const progress = self.progress;
+                        
+                        // Skip if progress hasn't changed significantly
+                        if (Math.abs(progress - lastProgress) < 0.001) return;
+                        lastProgress = progress;
+                        
+                        // Use RAF for smooth updates
+                        requestAnimationFrame(() => {
+                            // Update bus position
+                            updateBusPosition(progress);
+                            
+                            // Update road stroke
+                            roadPath.style.strokeDashoffset = pathLength * (1 - progress);
+                            
+                            // Find current destination
+                            const dest = getCurrentDestination(progress);
+                            const destIndex = journeyConfig.destinations.findIndex(d => d.id === dest.id);
+                            updateDestinationDisplay(dest, destIndex);
+                        });
+                    }
+                }
+            });
+        }
+        
+        // ============================================
+        // OTHER ANIMATIONS
+        // ============================================
+        
+        // Day cards - with visibility fallback
+        try {
+            gsap.utils.toArray('.day-card').forEach(card => {
+                gsap.from(card, {
+                    scrollTrigger: { 
+                        trigger: card, 
+                        start: 'top 80%',
+                        once: true,
+                        onEnter: () => {
+                            // Ensure visibility
+                            card.style.opacity = '1';
+                            card.querySelectorAll('.day-photo').forEach(photo => photo.style.opacity = '1');
+                        }
+                    },
+                    opacity: 0, y: 50, duration: 0.8
+                });
+                
+                gsap.from(card.querySelectorAll('.day-photo'), {
+                    scrollTrigger: { trigger: card, start: 'top 70%', once: true },
+                    opacity: 0, scale: 0.95, duration: 0.5, stagger: 0.1
+                });
+                
+                gsap.from(card.querySelectorAll('.highlight'), {
+                    scrollTrigger: { trigger: card, start: 'top 70%', once: true },
+                    opacity: 0, x: -15, duration: 0.4, stagger: 0.06
+                });
+            });
+        } catch(e) {
+            console.log('Day cards animation skipped');
+            // Fallback: ensure day cards are visible
+            document.querySelectorAll('.day-card').forEach(card => {
+                card.style.opacity = '1';
+                card.style.transform = 'none';
+                card.querySelectorAll('.day-photo').forEach(photo => {
+                    photo.style.opacity = '1';
+                    photo.style.transform = 'none';
+                });
+            });
+        }
+        
+        // CTA
+        try {
+            gsap.from('.cta-section > *', {
+                scrollTrigger: { trigger: '.cta-section', start: 'top 80%', once: true },
+                opacity: 0, y: 30, duration: 0.6, stagger: 0.1
+            });
+        } catch(e) {
+            console.log('CTA animation skipped');
+        }
+        
+        // Image loading error handling
+        document.querySelectorAll('.day-photo img').forEach(img => {
+            img.addEventListener('error', function() {
+                console.warn('Failed to load image:', this.src);
+                this.parentElement.style.display = 'none';
+            });
+            
+            // Ensure images are visible when loaded
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+                this.parentElement.style.opacity = '1';
+            });
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const t = document.querySelector(a.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
