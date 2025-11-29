@@ -655,7 +655,8 @@
             
             .day-card {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 20px;
+                margin-bottom: 40px;
             }
             
             .day-card:nth-child(even) {
@@ -664,6 +665,12 @@
             
             .day-photos {
                 order: -1;
+                gap: 10px;
+            }
+            
+            .day-photo:first-child {
+                grid-column: span 1;
+                aspect-ratio: 4/3;
             }
         }
         
@@ -732,15 +739,17 @@
                 height: 22px;
             }
             
+            /* Progress dots - vertical on right side for mobile */
             .journey-progress {
-                flex-direction: row;
-                top: auto;
-                bottom: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                gap: 6px;
-                flex-wrap: wrap;
-                max-width: 90%;
+                flex-direction: column;
+                top: 50%;
+                bottom: auto;
+                left: auto;
+                right: 15px;
+                transform: translateY(-50%);
+                gap: 8px;
+                flex-wrap: nowrap;
+                max-width: none;
                 justify-content: center;
             }
             
@@ -817,8 +826,15 @@
                 width: 90%;
             }
             
+            /* Keep vertical on right for small phones too */
             .journey-progress {
-                bottom: 15px;
+                right: 10px;
+                gap: 6px;
+            }
+            
+            .journey-progress-dot {
+                width: 6px;
+                height: 6px;
             }
             
             .journey-bus {
@@ -870,7 +886,7 @@
         
         /* Days */
         .days-section {
-            padding: 80px 5%;
+            padding: 60px 5%;
             background: var(--white);
         }
         
@@ -883,7 +899,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
-            margin-bottom: 100px;
+            margin-bottom: 60px;
             align-items: start;
             opacity: 1 !important;
             visibility: visible !important;
@@ -1214,7 +1230,7 @@
         /* Responsive */
         @media (max-width: 1024px) {
             .inclusions-grid { grid-template-columns: repeat(3, 1fr); }
-            .day-card { grid-template-columns: 1fr; gap: 30px; }
+            .day-card { grid-template-columns: 1fr; gap: 20px; margin-bottom: 50px; }
             .day-card:nth-child(even) { direction: ltr; }
             .day-photos { order: -1; }
         }
@@ -1226,8 +1242,51 @@
             .hero-meta { gap: 16px; }
             .hero-btns, .cta-btns { flex-direction: column; align-items: center; }
             .btn-primary, .btn-outline, .btn-white, .btn-ghost { width: 100%; max-width: 280px; text-align: center; }
-            .day-photos { grid-template-columns: 1fr 1fr; }
-            .day-photo:first-child { grid-column: span 2; }
+            .days-section {
+                padding: 40px 5%;
+            }
+            
+            .day-card {
+                margin-bottom: 30px;
+                gap: 16px;
+            }
+            
+            .day-info {
+                padding: 0;
+            }
+            
+            .day-info h3 {
+                font-size: 1.4rem;
+                margin-bottom: 6px;
+            }
+            
+            .day-desc {
+                font-size: 0.9rem;
+                margin-bottom: 16px;
+                line-height: 1.6;
+            }
+            
+            .day-highlights {
+                gap: 8px;
+            }
+            
+            .highlight {
+                padding: 10px 12px;
+            }
+            
+            .day-photos { 
+                grid-template-columns: 1fr 1fr; 
+                gap: 8px;
+            }
+            
+            .day-photo:first-child { 
+                grid-column: span 2;
+                aspect-ratio: 16/10;
+            }
+            
+            .day-photo {
+                aspect-ratio: 4/3;
+            }
             .map-container { padding: 24px; }
             .footer-content { flex-direction: column; text-align: center; }
             .footer-links { flex-wrap: wrap; justify-content: center; }
@@ -1586,7 +1645,7 @@
         const journeyConfig = {
             destinations: [
                 { id: 'chandigarh', name: 'Chandigarh', day: 1, progress: 0, 
-                  image: 'images/Solang Valley.jpeg',
+                  image: 'images/chandigarh.jpg',
                   desc: 'Your Himalayan adventure begins! Board the Volvo bus and embark on an unforgettable journey through the majestic Himalayas.' },
                 { id: 'bilaspur-lake', name: 'Bilaspur Lake', day: 1, progress: 0.05, 
                   image: 'images/Bilaspur Lake.jpeg',
